@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  padding: 1.5em;
+  background-color: #59a1ff;
+}
+
+.header h1 {
+  font-size: 2rem;
+  padding-bottom: 2vmin;
+}
+
+.header p {
+  font-size: 1rem;
+  padding-left: 3px;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0;
+  position: relative;
+}
+
+.timer-wrapper .countdown {
+  position: absolute;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.timer-wrapper .countdown.hide {
+  display: none;
+}
+
+.timer-wrapper .reset-btn {
+  display: none;
+  position: absolute;
+  width: 8rem;
+  min-height: 4rem;
+  border: none;
+  background-color: lightgreen;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.timer-wrapper .reset-btn.show {
+  display: block;
+}
+
+.statistics {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0;
+}
+
+.statistics .statistic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistics .statistic .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(25vw, 5rem);
+  min-height: min(25vw, 5rem);
+  box-shadow: 0 0 20px 5px;
+  border-radius: 1rem;
+  margin: 1rem min(3vw, 2rem);
+  font-size: 2rem;
+}
+
+.statistics .statistic .text {
+  font-size: min(4vmin, 1rem);
+}
+
+.text-input-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.text-input-wrap .text-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(85vw, 40rem);
+  min-height: 4rem;
+  box-shadow: 0 0 20px 5px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.text-input-wrap .text-input .input-field {
+  width: 0.25rem;
+  min-height: 4rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.text-input-wrap .text-input .input-field.locked {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.text-input-wrap .text-input .prev-words,
+.text-input-wrap .text-input .next-words {
+  width: 50%;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.text-input-wrap .text-input .prev-words {
+  justify-content: flex-end;
+}
+
+.text-input-wrap .text-input .next-words .next-word {
+  font-size: 1.5rem;
+  margin-right: 1ch;
+  line-height: 1;
+  color: gray;
+}
+
+.text-input-wrap .text-input .prev-words .prev-word {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-left: 1ch;
+  color: red;
+  text-decoration: line-through;
+}
+
+.text-input-wrap .text-input .prev-words .prev-word.correct {
+  color: green;
+  text-decoration: none;
+}
