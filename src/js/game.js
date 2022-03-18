@@ -1,5 +1,3 @@
-import 'regenerator-runtime/runtime';
-
 const EXTRA_WORDS = 4;
 const WORDS_LIST = require('/english_words.json');
 const WORDS_LIST_LEN = WORDS_LIST.length; 

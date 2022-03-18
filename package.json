@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --no-source-maps --public-url --disableDependencies --minimal ./",
+    "build": "parcel build src/index.html",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "homepage": "https://Thrasymachuss.github.io/typing-speed-test",
@@ -15,7 +15,7 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
   },
-  "dependencies": {
-    "regenerator-runtime": "^0.13.9"
-  }
+  "browserslist": [
+    "since 2017-06"
+  ]
 }
