@@ -53,6 +53,11 @@ body {
   border-radius: 0.5rem;
 }
 
+.timer-wrapper .reset-btn:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
 .timer-wrapper .reset-btn.show {
   display: block;
 }
@@ -95,7 +100,7 @@ body {
   padding: 1rem 0;
 }
 
-.text-input-wrap .text-input {
+.text-input-wrap .input-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,7 +111,11 @@ body {
   overflow: hidden;
 }
 
-.text-input-wrap .text-input .input-field {
+.text-input-wrap .input-box.locked {
+  pointer-events: none;
+}
+
+.text-input-wrap .input-box .input-field {
   width: 0.25rem;
   min-height: 4rem;
   border: none;
@@ -114,31 +123,31 @@ body {
   font-size: 1.5rem;
 }
 
-.text-input-wrap .text-input .input-field.locked {
+.text-input-wrap .input-box .input-field.locked {
   pointer-events: none;
   visibility: hidden;
 }
 
-.text-input-wrap .text-input .prev-words,
-.text-input-wrap .text-input .next-words {
+.text-input-wrap .input-box .prev-words,
+.text-input-wrap .input-box .next-words {
   width: 50%;
   min-height: 4rem;
   display: flex;
   align-items: center;
 }
 
-.text-input-wrap .text-input .prev-words {
+.text-input-wrap .input-box .prev-words {
   justify-content: flex-end;
 }
 
-.text-input-wrap .text-input .next-words .next-word {
+.text-input-wrap .input-box .next-words .next-word {
   font-size: 1.5rem;
   margin-right: 1ch;
   line-height: 1;
   color: gray;
 }
 
-.text-input-wrap .text-input .prev-words .prev-word {
+.text-input-wrap .input-box .prev-words .prev-word {
   font-size: 1.5rem;
   line-height: 1;
   margin-left: 1ch;
@@ -146,7 +155,7 @@ body {
   text-decoration: line-through;
 }
 
-.text-input-wrap .text-input .prev-words .prev-word.correct {
+.text-input-wrap .input-box .prev-words .prev-word.correct {
   color: green;
   text-decoration: none;
 }
