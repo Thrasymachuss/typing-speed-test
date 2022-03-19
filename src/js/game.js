@@ -105,14 +105,15 @@ export default class Game {
 
     #handleInput(e) {
         if (e.target.value !== " ") {
+            const letterTyped = e.target.value.toLowerCase()
             this.#assignedWordElement.textContent = this.#assignedWordElement.textContent.slice(1);
-            this.#currentWordElement.textContent = this.#currentWordElement.textContent + e.target.value;
+            this.#currentWordElement.textContent = this.#currentWordElement.textContent + letterTyped;
 
             if (!this.#typedWords[this.#wordIndex]) {
                 this.#typedWords[this.#wordIndex] = "";
             }
 
-            this.#typedWords[this.#wordIndex] = this.#typedWords[this.#wordIndex] + e.target.value;
+            this.#typedWords[this.#wordIndex] = this.#typedWords[this.#wordIndex] + letterTyped;
             this.#markRightOrWrong();
         }
 
@@ -135,7 +136,7 @@ export default class Game {
             return;
         }
 
-        if (e.key === " ") {
+        if (e.keyCode === 32) {
             if (this.#typedWords[this.#wordIndex] === this.#assignedWords[this.#wordIndex]) {
                 this.#currentWordElement.classList.add("correct");
             } else {
@@ -144,7 +145,7 @@ export default class Game {
 
             this.#finishWord();
 
-        } else if (e.key === "Backspace") {
+        } else if (e.keyCode === 8) {
             const lenTyped = this.#typedWords[this.#wordIndex].length;
 
             this.#currentWordElement.textContent = this.#currentWordElement.textContent.slice(0, lenTyped - 1);
