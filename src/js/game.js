@@ -115,6 +115,16 @@ export default class Game {
 
             this.#typedWords[this.#wordIndex] = this.#typedWords[this.#wordIndex] + letterTyped;
             this.#markRightOrWrong();
+
+        } else if (this.#typedWords[this.#wordIndex]) {
+
+            if (this.#typedWords[this.#wordIndex] === this.#assignedWords[this.#wordIndex]) {
+                this.#currentWordElement.classList.add("correct");
+            } else {
+                this.#currentWordElement.classList.remove("correct");
+            }
+
+            this.#finishWord();
         }
 
         e.target.value = "";
@@ -127,25 +137,7 @@ export default class Game {
     }
 
     #handleNonLetterInput(e) {
-        if (!this.#typedWords[this.#wordIndex]) {
-            if (this.#running) {
-                inputField.addEventListener("keydown", (e2) => {
-                    this.#handleNonLetterInput(e2);
-                }, { once: true });
-            }
-            return;
-        }
-
-        if (e.keyCode === 32) {
-            if (this.#typedWords[this.#wordIndex] === this.#assignedWords[this.#wordIndex]) {
-                this.#currentWordElement.classList.add("correct");
-            } else {
-                this.#currentWordElement.classList.remove("correct");
-            }
-
-            this.#finishWord();
-
-        } else if (e.keyCode === 8) {
+        if (this.#typedWords[this.#wordIndex] && e.key === "Backspace") {
             const lenTyped = this.#typedWords[this.#wordIndex].length;
 
             this.#currentWordElement.textContent = this.#currentWordElement.textContent.slice(0, lenTyped - 1);

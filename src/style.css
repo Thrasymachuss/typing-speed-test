@@ -42,6 +42,7 @@ body {
 }
 
 .timer-wrapper .reset-btn {
+  color: black;
   display: none;
   position: absolute;
   width: 8rem;
